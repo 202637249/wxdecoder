@@ -3,7 +3,7 @@
 特点
 ---
 
-- 单文件纯JS
+- 纯JS单文件
 - 无其他第三方库依赖
 - 方便集成到小程序
 
@@ -27,6 +27,8 @@ var data = wxDecoder.decode(iv, encryptedData);
 
 许可
 ---
-基于[**ricmoo/aes-js**](https://github.com/ricmoo/aes-js)修改玩成，特此感谢。
+基于[**ricmoo/aes-js**](https://github.com/ricmoo/aes-js)修改完成，特此感谢。
 
+WTH is this?
+---
 This project is useful for Chinese developers only far now. So there is no more introduction in English. Special thanks for [**ricmoo/aes-js**](https://github.com/ricmoo/aes-js) : )
