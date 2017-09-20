@@ -21,7 +21,7 @@ var encryptedData =
 	'20f0a04COwfneQAGGwd5oa+T8yO5hzuy'+
 	'Db/XcxxmK01EpqOyuxINew==';
 
-// Acquire the WXDecoder
+// Obtain the WXDecoder constructor
 var WXDecoder = require('./wxdecoder.js')
 
 // Instante a WXDecoder
