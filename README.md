@@ -1,4 +1,8 @@
-# wxdecoder-微信开放平台加密数据解密组件
+# wxdecoder-微信公众平台加密数据解密组件
+
+用途
+---
+参见：微信公众平台[加密数据解密算法](https://mp.weixin.qq.com/debug/wxadoc/dev/api/signature.html)
 
 特点
 ---
