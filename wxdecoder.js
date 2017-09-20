@@ -101,12 +101,12 @@
 
         var utf8 = {
             /**
-             * Converts the give bytes to UTF string.
+             * Converts the given bytes to UTF string.
              * 
              * @param {any} bytes 
              * @returns 
              */
-            fromBytes: function (bytes) {
+            fromBytesArray: function (bytes) {
                 var result = [], i = 0;
 
                 while (i < bytes.length) {
@@ -130,18 +130,18 @@
 
         var base64 = {
             /**
-             * Converts the give data to base64 bytes array.
+             * Converts the given data to base64 bytes array.
              * 
              * @param {any} text 
              * @returns 
              */
-            toBytes: function (text) {
+            toBytesArray: function (text) {
                 if (typeof Buffer === 'function') {
                     return new Buffer(text, 'base64');
                 }
 
                 if (typeof wx !== 'undefined' && typeof wx.base64ToArrayBuffer === 'function') {
-                    return wx.base64ToArrayBuffer(text);
+                    return new UInt8Array(wx.base64ToArrayBuffer(text));
                 }
 
                 throw new Error('No convert for base64 to bytes found');
@@ -360,7 +360,7 @@
          */
         var CBCAES = function (key, iv) {
             if (!(this instanceof CBCAES)) {
-                throw Error('AES must be instanitated with `new`');
+                throw Error('CBCAES must be instanitated with `new`');
             }
 
             this.description = "Cipher Block Chaining";
@@ -459,9 +459,9 @@
          */
         WXDecoder.prototype.decode = function (initVector, cipherText) {
             // Convert requried data to bytes array
-            var key = base64.toBytes(this.sessionKey);
-            var iv = base64.toBytes(initVector);
-            var cipherBytes = base64.toBytes(cipherText);
+            var key = base64.toBytesArray(this.sessionKey);
+            var iv = base64.toBytesArray(initVector);
+            var cipherBytes = base64.toBytesArray(cipherText);
 
             try {
                 // instanitate a CBCAES and decrypt the data
@@ -471,7 +471,7 @@
                 plainBytes = pkcs7.strip(plainBytes);
 
                 // Convert the data to UTF8 string
-                var plainText = utf8.fromBytes(plainBytes);
+                var plainText = utf8.fromBytesArray(plainBytes);
 
                 // Pase the JSON data
                 var plainJson = JSON.parse(plainText);
