@@ -35,4 +35,4 @@ var data = wxDecoder.decode(iv, encryptedData);
 
 WTH is this?
 ---
-This project is useful for Chinese developers only far now. So there is no more introduction in English. Special thanks for [**ricmoo/aes-js**](https://github.com/ricmoo/aes-js) : )
+This project is useful for Chinese developers only for now. So there is no more introduction in English. Special thanks for [**ricmoo/aes-js**](https://github.com/ricmoo/aes-js) : )
